@@ -1,11 +1,12 @@
 import axios from "axios";
 require("dotenv").config()
 
+const API_KEY = process.env.REACT_APP_API_KEY
 
 export default {
     searchBook: function(inputBook) {
         return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + inputBook + 
-                "&key=AIzaSyAzZgRkQPCC7s-2LJhwMEiV14lyWBQtxYs");
+                "&key=" + API_KEY);
     },
     getBooks: function() {
         return axios.get("/api/books")
