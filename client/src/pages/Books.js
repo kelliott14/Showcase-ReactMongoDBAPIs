@@ -55,14 +55,18 @@ class Book extends Component {
         return (
             <div>
                 <Jumbo />
-                <BookSearch handleFormSubmit={this.searchResults} handleInputChange={this.handleInputChange}/>
+                <BookSearch handleFormSubmit={this.searchResults} 
+                    disabled={!(this.state.title)}
+                    handleInputChange={this.handleInputChange}
+                    value={this.state.title}/>
                 <List>
                     {this.state.books.map(book => (
                            
                         <ListItem key={book.id}>
                                 <h4>{book.volumeInfo.title} 
                                     <a className="btn btn-success deleteBtn" role="button" href={book.volumeInfo.infoLink} target="_blank">View Book</a>
-                                    <button className="btn btn-success deleteBtn" role="button" onClick={() => 
+                                    <button className="btn btn-success deleteBtn" role="button" 
+                                        onClick={() => 
                                            { this.setState({ 
                                                 title: book.volumeInfo.title,
                                                 author: book.volumeInfo.authors ? 
