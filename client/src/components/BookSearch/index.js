@@ -1,16 +1,16 @@
 import React from "react";
 import "./style.css";
 
-function BookSearch() {
+function BookSearch(props) {
     return (
         <div className="jumbotron bookSearch">
         <h3 className="display-6">Book Search</h3>
         <form>
             <div className="form-group">
                 <label className="SearchTitle">Search by book title</label>
-                <input className="form-control" type="text"></input>
+                <input className="form-control" type="text" onChange={props.handleInputChange}></input>
             </div>
-            <button type="submit" className="btn btn-success">Search</button>
+            <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">Search</button>
         </form>
         </div>
     )

@@ -9,34 +9,77 @@ class Book extends Component {
         books: [],
         title: "",
         author: "",
-        synopsis: ""
+        synopsis: "",
+        url: ""
     };
 
-    componentDidMount() {
-        this.loadBooks();
+    componentDidMount = () => {
+        this.setState({
+            books: [],
+            title: "",
+            author: {},
+            synopsis: "",
+            url: ""
+        });
     }
 
-    loadBooks = () => {
-        API.getBooks()
+    handleInputChange = event => {
+        this.setState({ title: event.target.value })
+    }
+    
+    searchResults = event => {
+        event.preventDefault();
+        API.searchBook(this.state.title)
         .then(res =>
-            console.log(res.data)
-                // this.setState({ books: res.data, title: "", author: "", synopsis: "" }
-                // )
+                this.setState({ books: res.data.items, title: "" }
+                )
+                // console.log(res.data.items)
                 )
             .catch(err => console.log(err));
+    }
+
+    saveBook = () => {
+        console.log(this.state.title)
+        API.saveBook({
+            title: this.state.title,
+            author: this.state.author,
+            synopsis: this.state.synopsis,
+            url: this.state.url
+        })
+        .then(res => window.location.replace("/saved"))
+        .catch(err => console.log(err));
     }
 
     render() {
         return (
             <div>
                 <Jumbo />
-                <BookSearch />
+                <BookSearch handleFormSubmit={this.searchResults} handleInputChange={this.handleInputChange}/>
                 <List>
                     {this.state.books.map(book => (
-                        <ListItem key={book._id}>
-                                <strong>
-                                    {book.title} by {book.author}
-                                </strong>
+                        <ListItem key={book.id}>
+                                <h4>{book.volumeInfo.title} 
+                                    <a className="btn btn-success deleteBtn" role="button" href={book.volumeInfo.infoLink} target="_blank">View Book</a>
+                                    <button className="btn btn-success deleteBtn" role="button" onClick={() => 
+                                           { this.setState({ 
+                                                title: book.volumeInfo.title,
+                                                author: book.volumeInfo.authors,
+                                                synopsis: book.volumeInfo.description,
+                                                url: book.volumeInfo.infoLink    
+                                            }, 
+                                              () => this.saveBook()
+                                            
+                                            // console.log(book.volumeInfo.title),
+                                            // console.log(this.state.title)
+                                            );
+                                        }
+                                    }
+                                            >Save to your list</button>
+                                    </h4>
+                                <h5>by {book.volumeInfo.authors.map(author => (
+                                    author + " "
+                                ))}</h5>
+                                <p>{book.volumeInfo.description}</p>
                         </ListItem>
                     ))}
                 </List>

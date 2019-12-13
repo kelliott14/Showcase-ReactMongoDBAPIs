@@ -1,7 +1,8 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Book from "./pages/Books";
 import Nav from "./components/Nav";
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import SavedBook from "./pages/Saved";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" component={Book} />
+          <Route exact path="/saved" component={SavedBook} />
         </Switch>
       </div>
     </Router>

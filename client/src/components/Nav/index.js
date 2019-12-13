@@ -8,10 +8,10 @@ function Nav() {
             <div className="collapse navbar-collapse show" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Search</a>
+                    <a className="nav-link" href="/">Search</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Saved</a>
+                    <a className="nav-link" href="/saved">Saved</a>
                 </li>                
                 </ul>
             </div>
