@@ -3,7 +3,7 @@ import "./style.css";
 
 function Nav() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <a className="navbar-brand">Search a Book</a>
             <div className="collapse navbar-collapse show" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">

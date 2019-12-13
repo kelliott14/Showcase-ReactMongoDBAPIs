@@ -1,4 +1,12 @@
 .jumbotron{
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: cornflowerblue;
+}
+
+.display-4{
+    background-color: darkslateblue;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
 }

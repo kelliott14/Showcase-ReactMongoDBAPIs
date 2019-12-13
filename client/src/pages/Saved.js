@@ -5,10 +5,7 @@ import API from "../utils/API";
 
 class SavedBook extends Component {
     state = {
-        books: [],
-        title: "",
-        author: "",
-        synopsis: ""
+        books: []
     };
 
     componentDidMount() {
@@ -18,7 +15,7 @@ class SavedBook extends Component {
     loadBooks = () => {
         API.getBooks()
         .then(res =>
-                this.setState({ books: res.data, title: "", author: "", synopsis: "" }
+                this.setState({ books: res.data }
                 )
                 )
             .catch(err => console.log(err));
@@ -40,6 +37,7 @@ class SavedBook extends Component {
                                 <a className="btn btn-success deleteBtn" role="button" href={book.url} target="_blank">View Book</a>
                                 <h4>{book.title} <button className="btn btn-success deleteBtn" role="button" onClick={() => this.deleteBook(book._id)}>Remove from list</button> </h4>
                                 <h5>by {book.author}</h5>
+                                <img src={book.img}></img>
                                 <p>{book.synopsis}</p>
                         </ListItem>
                     ))}

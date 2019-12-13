@@ -10,7 +10,7 @@ function BookSearch(props) {
                 <label className="SearchTitle">Search by book title</label>
                 <input className="form-control" type="text" onChange={props.handleInputChange}></input>
             </div>
-            <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">Search</button>
+            <button type="submit" onClick={props.handleFormSubmit} className="btn btn-secondary">Search</button>
         </form>
         </div>
     )

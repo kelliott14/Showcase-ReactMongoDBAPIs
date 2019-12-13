@@ -10,7 +10,8 @@ class Book extends Component {
         title: "",
         author: "",
         synopsis: "",
-        url: ""
+        url: "",
+        img: ""
     };
 
     componentDidMount = () => {
@@ -19,7 +20,8 @@ class Book extends Component {
             title: "",
             author: {},
             synopsis: "",
-            url: ""
+            url: "",
+            img: ""
         });
     }
 
@@ -31,20 +33,19 @@ class Book extends Component {
         event.preventDefault();
         API.searchBook(this.state.title)
         .then(res =>
-                this.setState({ books: res.data.items, title: "" }
-                )
-                // console.log(res.data.items)
+                this.setState({ books: res.data.items, title: "" })
+                
                 )
             .catch(err => console.log(err));
     }
 
     saveBook = () => {
-        console.log(this.state.title)
         API.saveBook({
             title: this.state.title,
             author: this.state.author,
             synopsis: this.state.synopsis,
-            url: this.state.url
+            url: this.state.url,
+            img: this.state.img
         })
         .then(res => window.location.replace("/saved"))
         .catch(err => console.log(err));
@@ -57,28 +58,40 @@ class Book extends Component {
                 <BookSearch handleFormSubmit={this.searchResults} handleInputChange={this.handleInputChange}/>
                 <List>
                     {this.state.books.map(book => (
+                           
                         <ListItem key={book.id}>
                                 <h4>{book.volumeInfo.title} 
                                     <a className="btn btn-success deleteBtn" role="button" href={book.volumeInfo.infoLink} target="_blank">View Book</a>
                                     <button className="btn btn-success deleteBtn" role="button" onClick={() => 
                                            { this.setState({ 
                                                 title: book.volumeInfo.title,
-                                                author: book.volumeInfo.authors,
+                                                author: book.volumeInfo.authors ? 
+                                                        book.volumeInfo.authors :
+                                                        "Not Listed",
                                                 synopsis: book.volumeInfo.description,
-                                                url: book.volumeInfo.infoLink    
+                                                url: book.volumeInfo.infoLink,
+                                                img: book.volumeInfo.imageLinks ? 
+                                                    book.volumeInfo.imageLinks.thumbnail : 
+                                                    "https://placehold.it/120x190"
                                             }, 
                                               () => this.saveBook()
-                                            
-                                            // console.log(book.volumeInfo.title),
-                                            // console.log(this.state.title)
                                             );
                                         }
                                     }
                                             >Save to your list</button>
                                     </h4>
-                                <h5>by {book.volumeInfo.authors.map(author => (
-                                    author + " "
-                                ))}</h5>
+                                    {book.volumeInfo.authors ? 
+                                        (<h5>by  {book.volumeInfo.authors.map(author => (
+                                                    author + " "))} </h5> )
+                                :
+                                (<h5>Not Listed</h5>)
+                                }
+                                
+                                {book.volumeInfo.imageLinks ? 
+                                    (<img src={book.volumeInfo.imageLinks.thumbnail}></img>)
+                                    :
+                                    (<img src="https://placehold.it/120x190"></img>)
+                                     }
                                 <p>{book.volumeInfo.description}</p>
                         </ListItem>
                     ))}
