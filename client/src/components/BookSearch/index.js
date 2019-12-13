@@ -7,7 +7,7 @@ function BookSearch() {
         <h3 className="display-6">Book Search</h3>
         <form>
             <div className="form-group">
-                <label for="SearchTitle">Search by book title</label>
+                <label className="SearchTitle">Search by book title</label>
                 <input className="form-control" type="text"></input>
             </div>
             <button type="submit" className="btn btn-success">Search</button>
