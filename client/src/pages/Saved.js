@@ -35,7 +35,8 @@ class SavedBook extends Component {
                     {this.state.books.map(book => (
                         <ListItem key={book._id}>
                                 <a className="btn btn-success deleteBtn" role="button" href={book.url} target="_blank">View Book</a>
-                                <h4>{book.title} <button className="btn btn-success deleteBtn" role="button" onClick={() => this.deleteBook(book._id)}>Remove from list</button> </h4>
+                                <h4>{book.title} 
+                                <button className="btn btn-success deleteBtn" role="button" onClick={() => this.deleteBook(book._id)}>Remove from list</button> </h4>
                                 <h5>by  {book.author.map(author => (
                                                     author + " "))} </h5>
                                 <img src={book.img}></img>

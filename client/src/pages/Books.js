@@ -3,6 +3,9 @@ import Jumbo from "../components/Jumbotron";
 import BookSearch from "../components/BookSearch";
 import { List, ListItem } from "../components/Results";
 import API from "../utils/API";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 class Book extends Component {
     state = {
@@ -11,8 +14,15 @@ class Book extends Component {
         author: "",
         synopsis: "",
         url: "",
-        img: ""
+        img: "",
+        startDate: new Date()
     };
+
+    handleChange = date => {
+        this.setState({
+            startDate: date
+        })
+    }
 
     componentDidMount = () => {
         this.setState({
@@ -59,6 +69,10 @@ class Book extends Component {
                     disabled={!(this.state.title)}
                     handleInputChange={this.handleInputChange}
                     value={this.state.title}/>
+                    <DatePicker
+                        selected={this.state.startDate}
+                        onChange={this.handleChange}
+                        />
                 <List>
                     {this.state.books.map(book => (
                            
