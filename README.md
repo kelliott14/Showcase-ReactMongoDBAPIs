@@ -22,7 +22,7 @@ Showcasing React, MongoDB and API. Search for a book using the Google Books APIs
 > ![media@825](https://github.com/kelliott14/Unit-20-Homework/blob/master/readme/demo2.JPG)
 
 3. This list is accessible through the `Saved` link in the top ribbon. 
-> ![media@760](hhttps://github.com/kelliott14/Unit-20-Homework/blob/master/readme/demo3.JPG)
+> ![media@760](https://github.com/kelliott14/Unit-20-Homework/blob/master/readme/demo3.JPG)
 
 
 *Website was created as part of the ***University of Sydney's The Coding Bootcamp*** *
