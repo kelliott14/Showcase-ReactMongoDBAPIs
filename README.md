@@ -16,21 +16,13 @@ Showcasing React, MongoDB and API. Search for a book using the Google Books APIs
 
 ## Screenshots:
 1. Use the search box to search the Google Books API library. 
->![media@1000](https://github.com/kelliott14/Showcase-ResponsiveDesign/blob/master/readme/demo1)
+>![media@1000](https://github.com/kelliott14/Unit-20-Homework/blob/master/readme/demo1.JPG)
 
-2. Media @ 825px 
-> ![media@825](https://github.com/kelliott14/Showcase-ResponsiveDesign/blob/master/readme/media-825.JPG)
+2. Search results display below, use the `View Book` link to display the book. Use the `Save to your list` button to add the book to your saved list. This list is accessible through the `Saved` link in the top ribbon. 
+> ![media@825](https://github.com/kelliott14/Unit-20-Homework/blob/master/readme/demo2.JPG)
 
-3. Media @ 760px 
-> ![media@760](https://github.com/kelliott14/Showcase-ResponsiveDesign/blob/master/readme/media-760.JPG)
+3. This list is accessible through the `Saved` link in the top ribbon. 
+> ![media@760](hhttps://github.com/kelliott14/Unit-20-Homework/blob/master/readme/demo3.JPG)
 
-4. Media @ 625px 
-> ![media@625](https://github.com/kelliott14/Showcase-ResponsiveDesign/blob/master/readme/media-625.JPG)
 
-5. Media @ 425px 
-> ![media@425](https://github.com/kelliott14/Showcase-ResponsiveDesign/blob/master/readme/media-425.JPG)
-
-6. Media Print
->![media@print](https://github.com/kelliott14/Showcase-ResponsiveDesign/blob/master/readme/media-print.JPG)
-
-*Materials sourced from ***eLearning - Responsive Web Design*** on ***Pluralsight*** as part of the ***Diploma of Web Design*** through ***Upskilled*** *
+*Website was created as part of the ***University of Sydney's The Coding Bootcamp*** *
